@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinforcement Learning Algorithms in Robotics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('back.png');
+            background-size: 85%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .stats-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 20px;
+}
+        .reference-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            margin-left: 8px;
+            margin-right: 8px;
+            height: 100%;
+        }
+        .filterC {
+            background-color: rgb(121, 109, 109);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .desc {
+            background-color: rgb(121, 109, 109);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .reference-card a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+        .reference-card a:hover {
+            text-decoration: underline;
+        }
+        .stats-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="desc">
+        <h1 class="text-center">Reinforcement Learning Algorithms in Robotics</h1>
+        <p>
+            Reinforcement Learning (RL) has emerged as a transformative approach for training autonomous agents to perform complex tasks through trial-and-error interactions.
+            This page provides an overview of reinforcement learning (RL) algorithms applied in robotics.
+            Filters allow you to explore algorithms based on specific dates, types, policy updates, and contributions.
+        </p>
+    </div>
+
+    <div class="container py-4">
+        <div class="row">
+            <!-- Left: Filters -->
+            <div class="col-lg-4">
+                <div class="filterC">
+                    <h4>Filters</h4>
+
+                    <!-- Filter by Year (2020-2024) -->
+                    <div class="mb-4">
+                        <label for="year-range" class="form-label">Filter by Year:</label>
+                        <input type="range" class="form-range" id="year-range" min="2020" max="2024" step="1" value="2024">
+                        <div class="d-flex justify-content-between">
+                            <span>2020</span>
+                            <span>2021</span>
+                            <span>2022</span>
+                            <span>2023</span>
+                            <span>2024</span>
+                        </div>
+                        <p>Selected Year: <span id="selected-year">2024</span></p>
+                    </div>
+
+                    <!-- Filter by Algorithm -->
+                    <div class="mb-4">
+                        <label for="algorithm-select" class="form-label">Filter by Algorithm:</label>
+                        <select id="algorithm-select" class="form-select">
+                            <option value="">All Algorithms</option>
+                            <option value="DDPG">Deep Deterministic Policy Gradient (DDPG)</option>
+                            <option value="PPO">Proximal Policy Optimization (PPO)</option>
+                            <option value="A3C">Asynchronous Advantage Actor-Critic (A3C)</option>
+                            <option value="TD3">Twin Delayed Deep Deterministic Policy Gradient (TD3)</option>
+                            <option value="SAC">Soft Actor-Critic (SAC)</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter by Type -->
+                    <div class="mb-4">
+                        <label class="form-label">Type:</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="critere1" value="Critere1-1">
+                            <label class="form-check-label">Model-based</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="critere1" value="Critere1-2">
+                            <label class="form-check-label">Model-free</label>
+                        </div>
+                    </div>
+
+                    <!-- Filter by Policy Update -->
+                    <div class="mb-4">
+                        <label class="form-label">Policy Update:</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="critere2" value="Critere2-1">
+                            <label class="form-check-label">On-Policy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="critere2" value="Critere2-2">
+                            <label class="form-check-label">Off-Policy</label>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Section -->
+                    <h5>Statistics</h5>
+                        <a href="https://observablehq.com/d/ab2dc00ea8984e34" target="_blank">
+                            <img src="marine.png" class="stats-icon">
+                        </a>
+                        <a href="https://example.com/stat2" target="_blank">
+                            <img src="total.png" class="stats-icon">
+                        </a>
+                </div>
+            </div>
+
+            <!-- Right: Reference Matrix -->
+            <div class="col-lg-8">
+                
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="reference-list">
+                    <div class="col reference-card" data-algorithm="DDPG" data-year="2020">
+                        <strong>Deep Deterministic Policy Gradient (DDPG)</strong>
+                        <p>A reinforcement learning technique used in robotic applications to improve path planning, control, and adaptive exploration.</p>
+                        <a href="https://example.com/paper27" target="_blank">[Read more]</a>
+                    </div>
+
+                    <div class="col reference-card" data-algorithm="PPO" data-year="2020">
+                        <strong>Proximal Policy Optimization (PPO)</strong>
+                        <p>Digital twin integration, UAV path planning, and obstacle avoidance.</p>
+                        <a href="https://example.com/paper33" target="_blank">[Read more]</a>
+                    </div>
+
+                    <div class="col reference-card" data-algorithm="DDPG" data-id="Critere1-1-Critere2-1" data-year="2020">
+                        <strong>Path planning in dynamic environments</strong>
+                        <p>This study explores DDPG for navigation in changing environments.</p>
+                        <a href="https://example.com/paper27" target="_blank">[Read more]</a>
+                    </div>
+                    <div class="col reference-card" data-algorithm="DDPG" data-id="Critere1-1-Critere2-1" data-year="2020">
+                        <strong>Enhanced robot path planning</strong>
+                        <p>Utilizing DDPG to optimize routes while avoiding obstacles.</p>
+                        <a href="https://example.com/paper28" target="_blank">[Read more]</a>
+                    </div>
+                    <div class="col reference-card" data-algorithm="SAC" data-id="Critere1-2-Critere2-2" data-year="2020">
+                        <strong>Soft Actor-Critic (SAC)</strong>
+                        <p>Terrain adaptability, multi-robot coordination, and risk-sensitive navigation.</p>
+                        <a href="https://example.com/paper43" target="_blank">[Read more]</a>
+                    </div>
+
+                    <div class="col reference-card" data-algorithm="GPS" data-id="Critere1-2-Critere2-2" data-year="2020"> 
+                        <strong>Guided Policy Search: Global RL for Mobile Robots</strong>
+                        <p>Guided Policy Search (GPS) integrates reinforcement learning with trajectory optimization to enhance robotic control. This method allows mobile robots to navigate complex environments with improved adaptability and precision.</p>
+                        <a href="https://example.com/paper43" target="_blank">[Read more]</a>
+                    </div>
+                    
+                    <div class="col reference-card" data-algorithm="AC" data-id="Critere1-2-Critere2-2" data-year="2020">
+                        <strong>Actor-Critic Methods: Expert-Guided Policies</strong>
+                        <p>Actor-Critic (AC) methods combine value-based and policy-based learning to enhance decision-making in robotics. These methods enable adaptive policy updates, making them effective for multi-agent coordination and real-time control.</p>
+                        <a href="https://example.com/paper43" target="_blank">[Read more]</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function filterList() {
+                var selectedYear = parseInt($('#year-range').val());
+                var selectedAlgorithm = $('#algorithm-select').val();
+                var selectedCritere1 = $('input[name="critere1"]:checked').map(function() {
+                    return this.value;
+                }).get();
+                var selectedCritere2 = $('input[name="critere2"]:checked').map(function() {
+                    return this.value;
+                }).get();
+
+                $('#reference-list .reference-card').each(function() {
+                    var paperYear = parseInt($(this).data('year'));
+                    var yearMatch = paperYear >= 2020 && paperYear <= selectedYear;
+                    var algorithmMatch = selectedAlgorithm === "" || $(this).data('algorithm') === selectedAlgorithm;
+                    var critere1Match = selectedCritere1.length === 0 || selectedCritere1.some(crit => $(this).data('id')?.includes(crit));
+                    var critere2Match = selectedCritere2.length === 0 || selectedCritere2.some(crit => $(this).data('id')?.includes(crit));
+yearMatch= true; // this added manualy
+                    $(this).toggle(yearMatch && algorithmMatch && critere1Match && critere2Match);
+                });
+            }
+
+            $('#year-range, #algorithm-select').on('change', function() {
+                $('#selected-year').text($('#year-range').val());
+                filterList();
+            });
+
+            $('input[name="critere1"], input[name="critere2"]').on('change', filterList);
+            filterList();
+        });
+    </script>
+
+</body>
+</html>
