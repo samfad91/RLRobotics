@@ -69,6 +69,18 @@
             border-radius: 10px;
             margin-top: 10px;
         }
+        @media (min-width: 576px) { /* Small screens */
+    #reference-list .reference-card { width: 48%; }
+}
+@media (min-width: 768px) { /* Medium screens */
+    #reference-list .reference-card { width: 31%; }
+}
+@media (min-width: 992px) { /* Large screens */
+    #reference-list .reference-card { width: 24%; }
+}
+@media (min-width: 1200px) { /* Extra large screens */
+    #reference-list .reference-card { width: 19%; }
+}
     </style>
 </head>
 <body>
@@ -84,7 +96,7 @@
     <div class="container py-4">
         <div class="row">
             <!-- Left: Filters -->
-            <div class="col-lg-4">
+            <div class="col-lg-3 col-md-4">
                 <div class="filterC">
                     <h4>Filters</h4>
 
@@ -152,102 +164,73 @@
                             <label class="form-check-label">Legged</label>
                         </div>
                     </div>
-                    <!-- Filter by Policy Update -->
+                    <!-- Filter by Policy Update
                     <div class="mb-4">
                         <label class="form-label">Policy Update:</label><br>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="Policy" value="OnPolicy"> <!--name="critere2" value="Critere2-1"-->
+                            <input class="form-check-input" type="checkbox" name="Policy" value="OnPolicy"> name="critere2" value="Critere2-1"
                             <label class="form-check-label">On-Policy</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="Policy" value="OffPolicy"> <!--name="critere2" value="Critere2-2"-->
+                            <input class="form-check-input" type="checkbox" name="Policy" value="OffPolicy"> name="critere2" value="Critere2-2"
                             <label class="form-check-label">Off-Policy</label>
                         </div>
-                    </div>
+                    </div>  -->
 
                     <!-- Statistics Section -->
                     <h5>Statistics</h5>
                         <a href="https://observablehq.com/d/ab2dc00ea8984e34" target="_blank">
                             <img src="marine.png" class="stats-icon">
                         </a>
-                        <a href="https://example.com/stat2" target="_blank">
+                        <a href="barchart.html" target="_blank">
                             <img src="total.png" class="stats-icon">
                         </a>
                 </div>
             </div>
 
             <!-- Right: Reference Matrix -->
-            <div class="col-lg-8">
-                
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="reference-list">
+            <div class="col-lg-9 col-md-8">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" id="reference-list">
+          
 
-
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2023">
-                        <strong>Path planning in dynamic environments</strong>
-                        <p>This study explores DDPG for navigation in changing environments.</p>
-                        <a href="https://www.mdpi.com/1424-8220/23/7/3521" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2021">
+                        <strong>Towards safe control of continuum manipulator using shielded multiagent reinforcement learning</strong>
+                        <p>Continuum robotic manipulators are increasingly adopted in minimal invasive surgery. However, their nonlinear behavior is challenging to model accurately, especially when subject to external interaction, potentially leading to poor control ...</p>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/9488207" target="_blank">[Read more]</a>
                     </div>
 
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2024">
-                        <strong>Enhanced robot path planning</strong>
-                        <p>This study enhances autonomous path planning for intelligent mobile robots by improving the Deep Deterministic Policy Gradient (DDPG) method with deep reinforcement learning.</p>
-                        <a href="https://www.springerprofessional.de/en/robot-path-planning-algorithm-with-improved-ddpg-algorithm/27148904" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2022">
+                        <strong>Learning to cooperate: A hierarchical cooperative dual robot arm approach for underactuated pick-and-placing</strong>
+                        <p>Cooperative multiagent manipulation systems allow to extend on the manipulative limitations of individual agents, increasing the complexity of the manipulation tasks the ensemble can handle.</p>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/9788476" target="_blank">[Read more]</a>
                     </div>
 
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2023">
-                        <strong>Grey Wolf Optimizer for control tasks</strong>
-                        <p>This study proposes an improved Grey Wolf Optimizer (GWO) integrated with Levy Flight (LFGWO) to address early convergence issues</p>
-                        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10181244" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2021">
+                        <strong>Robot grasping method optimization using improved deep deterministic policy gradient algorithm of deep reinforcement learning</strong>
+                        <p>Robot grasping has become a very hot research field so that the requirements for robot operation are getting higher and higher...</p>
+                        <a href="https://pubs.aip.org/aip/rsi/article-abstract/92/2/025114/369268/Robot-grasping-method-optimization-using-improved" target="_blank">[Read more]</a>
                     </div>
 
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2023">
-                        <strong>Robotic arm control</strong>
-                        <p>This study enhances the DDPG algorithm by introducing a hybrid reward function and an improved experience replay mechanism to boost convergence and adaptability. </p>
-                        <a href="https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2023.1096053/full" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2021">
+                        <strong>Applying deep reinforcement learning to cable driven parallel robots for balancing unstable loads: a ball case study</strong>
+                        <p>The current pandemic has highlighted the need for rapid construction of structures to treat patients and ensure manufacturing of health care products such as vaccines.. </p>
+                        <a href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2020.611203/full" target="_blank">[Read more]</a>
                     </div>
 
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2024">
-                        <strong>Adaptive exploration for biped robots</strong>
-                        <p>This research enhances bipedal robot stability in windy environments using an adaptive bio-inspired exploration framework based on DDPG.</p>
-                        <a href="https://www.mdpi.com/2313-7673/9/6/346" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2021"> 
+                        <strong>Deep reinforcement learning based moving object grasping</strong>
+                        <p>Traditional grasping methods for locating unpredictable positions of moving objects under an unstructured environment cannot achieve good performance...</p>
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0020025521001158" target="_blank">[Read more]</a>
                     </div>
 
-                    <div class="col reference-card" data-algorithm="DDPG" data-id="ModelBased-OffPolicy" data-year="2024">
-                        <strong>Double critics for navigation</strong>
-                        <p>This research enhances autonomous navigation for mobile robots by proposing the AP-D4PG algorithm, an improved DDPG variant. By integrating adaptive parameter space noise, double critics and actors, and parallel experience replay, it improves exploration, accuracy, and stability. </p>
-                        <a href="https://ieeexplore.ieee.org/document/10753589" target="_blank">[Read more]</a>
+                    <div class="col reference-card" data-algorithm="" data-id="Robot-Manipulator" data-year="2021">
+                        <strong>Decentralized multi-agent control of a manipulator in continuous task learning</strong>
+                        <p>Many real-world tasks require multiple agents to work together. When talking about multiple agents in robotics, it is usually referenced to multiple manipulators....</p>
+                        <a href="https://www.mdpi.com/2076-3417/11/21/10227" target="_blank">[Read more]</a>
                     </div>
+
                     <!------------------------------------------------------------------------->
-                    <div class="col reference-card" data-algorithm="DDPG" data-year="2020">
-                        <strong>Deep Deterministic Policy Gradient (DDPG)</strong>
-                        <p>A reinforcement learning technique used in robotic applications to improve path planning, control, and adaptive exploration.</p>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/9545961" target="_blank">[Read more]</a>
-                    </div>
-
-                    <div class="col reference-card" data-algorithm="PPO" data-year="2020">
-                        <strong>Proximal Policy Optimization (PPO)</strong>
-                        <p>Digital twin integration, UAV path planning, and obstacle avoidance.</p>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/9501950" target="_blank">[Read more]</a>
-                    </div>
-
-                  
-                    <div class="col reference-card" data-algorithm="SAC" data-id="Critere1-2-Critere2-2" data-year="2020">
-                        <strong>Soft Actor-Critic (SAC)</strong>
-                        <p>Terrain adaptability, multi-robot coordination, and risk-sensitive navigation.</p>
-                        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/17272" target="_blank">[Read more]</a>
-                    </div>
-
-                    <div class="col reference-card" data-algorithm="GPS" data-id="Critere1-2-Critere2-2" data-year="2020"> 
-                        <strong>Mobile Robot Path Planning in Dynamic Environments Through Globally Guided Reinforcement Learning</strong>
-                        <p>Guided Policy Search (GPS) integrates reinforcement learning with trajectory optimization to enhance robotic control. This method allows mobile robots to navigate complex environments with improved adaptability and precision.</p>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/9205217" target="_blank">[Read more]</a>
-                    </div>
-                    
-                <!--      <div class="col reference-card" data-algorithm="AC" data-id="Critere1-2-Critere2-2" data-year="2020">
-                        <strong>Actor-Critic Methods: Expert-Guided Policies</strong>
-                        <p>Actor-Critic (AC) methods combine value-based and policy-based learning to enhance decision-making in robotics. These methods enable adaptive policy updates, making them effective for multi-agent coordination and real-time control.</p>
-                        <a href="https://example.com/paper43" target="_blank">[Read more]</a>
-                    </div>-->
+                   
                     
                 </div>
             </div>
@@ -262,7 +245,7 @@
                 var selectedCritere1 = $('input[name="Model"]:checked').map(function() {
                     return this.value;
                 }).get();
-                var selectedCritere2 = $('input[name="Policy"]:checked').map(function() {
+                var selectedCritere2 = $('input[name="Robot"]:checked').map(function() {
                     return this.value;
                 }).get();
 
@@ -272,7 +255,7 @@
                     var algorithmMatch = selectedAlgorithm === "" || $(this).data('algorithm') === selectedAlgorithm;
                     var critere1Match = selectedCritere1.length === 0 || selectedCritere1.some(crit => $(this).data('id')?.includes(crit));
                     var critere2Match = selectedCritere2.length === 0 || selectedCritere2.some(crit => $(this).data('id')?.includes(crit));
-yearMatch= true; // this added manualy
+//yearMatch= true; // this added manualy
                     $(this).toggle(yearMatch && algorithmMatch && critere1Match && critere2Match);
                 });
             }
