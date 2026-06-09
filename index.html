@@ -126,7 +126,12 @@ p{
             <div class="col-lg-3 col-md-4">
                 <div class="filterC">
                     <h4>Filters</h4>
-
+<!-- Search by Title -->
+<div class="mb-4">
+    <label for="title-search" class="form-label">Search by Title:</label>
+    <input type="text" id="title-search" class="form-control"
+           placeholder="Enter keywords...">
+</div>
                     <!-- Filter by Year (2020-2024) -->
                     <div class="mb-4">
                         <label for="year-range" class="form-label">Filter by Year:</label>
@@ -1920,53 +1925,63 @@ p{
 
     <script>
 
-   $(document).ready(function () {
+    $(document).ready(function () {
 
     let firstLoad = true;
 
-    function filterList() {
-        var selectedYear = parseInt($('#year-range').val());
+   function filterList() {
+    var selectedYear = parseInt($('#year-range').val());
 
-        var selectedAlgorithms = [];
-        if (!firstLoad && $('#algorithm-select').val()) {
-            selectedAlgorithms = $('#algorithm-select').val().split('-');
-        }
-
-        var selectedRobots = [];
-        if (!firstLoad) {
-            $('input[name="Robot"]:checked').each(function () {
-                selectedRobots.push($(this).val());
-            });
-        }
-
-        $('.reference-card').each(function () {
-
-            var year = parseInt($(this).data('year'));
-            var algorithmList = ($(this).data('algorithm') || '').split('-');
-            var robotList = ($(this).data('id') || '').split('-');
-
-            // Year filter
-            var yearMatch = (year >= selectedYear);
-
-            // Algorithm filter
-            var algorithmMatch =
-                selectedAlgorithms.length === 0 ||
-                selectedAlgorithms.some(algo => algorithmList.includes(algo));
-
-            // Robot filter
-            var robotMatch =
-                selectedRobots.length === 0 ||
-                selectedRobots.some(type => robotList.includes(type));
-
-            if (yearMatch && algorithmMatch && robotMatch) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-
-        firstLoad = false;
+    var selectedAlgorithms = [];
+    if (!firstLoad && $('#algorithm-select').val()) {
+        selectedAlgorithms = $('#algorithm-select').val().split('-');
     }
+
+    var selectedRobots = [];
+    if (!firstLoad) {
+        $('input[name="Robot"]:checked').each(function () {
+            selectedRobots.push($(this).val());
+        });
+    }
+
+    // Search text
+    var searchTitle = $('#title-search').val().toLowerCase().trim();
+
+    $('.reference-card').each(function () {
+
+        var year = parseInt($(this).data('year'));
+        var algorithmList = ($(this).data('algorithm') || '').split('-');
+        var robotList = ($(this).data('id') || '').split('-');
+
+        // Get title from <strong>
+        var title = $(this).find('strong').text().toLowerCase();
+
+        // Year filter
+        var yearMatch = (year >= selectedYear);
+
+        // Algorithm filter
+        var algorithmMatch =
+            selectedAlgorithms.length === 0 ||
+            selectedAlgorithms.some(algo => algorithmList.includes(algo));
+
+        // Robot filter
+        var robotMatch =
+            selectedRobots.length === 0 ||
+            selectedRobots.some(type => robotList.includes(type));
+
+        // Title filter
+        var titleMatch =
+            searchTitle === "" || title.includes(searchTitle);
+
+        if (yearMatch && algorithmMatch && robotMatch && titleMatch) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+
+    firstLoad = false;
+}
 
     $('#year-range').on('input', function () {
         $('#selected-year').text(this.value);
@@ -1982,11 +1997,14 @@ p{
         firstLoad = false;
         filterList();
     });
-
+$('#title-search').on('keyup', function () {
+    firstLoad = false;
+    filterList();
+});
     // Show all references on page load
     $('.reference-card').show();
 
-    // Only apply year filter initially
+    // Only apply ye filter initially
     filterList();
 });
 
